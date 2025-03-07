@@ -1,9 +1,15 @@
 version: "3"
 
 tasks:
-  build:
+  pre:
     cmds:
-      - go build -v main.go
+      - mkdir -p bin
+
+  build:
+    deps:
+      - pre
+    cmds:
+      - go build -v -o bin/main main.go
 
   run:
     cmds:
